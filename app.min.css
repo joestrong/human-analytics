@@ -11438,5 +11438,19 @@ fieldset[disabled] .mdl-textfield .mdl-textfield__label,
 .mdl-cell--11-offset-desktop.mdl-cell--11-offset-desktop {
     margin-left: 91.6666666667%; } }
 
+* {
+  box-sizing: border-box; }
+
 .page-content {
-  padding-left: calc(80px - 8px); }
+  padding-left: 80px; }
+
+.widget-container {
+  display: flex;
+  height: 100%;
+  padding: 20px 0; }
+
+.widget {
+  box-shadow: 0 0 2px 0 #000;
+  min-width: 250px;
+  min-height: 250px;
+  padding: 10px; }
