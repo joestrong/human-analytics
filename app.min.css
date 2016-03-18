@@ -11454,3 +11454,21 @@ fieldset[disabled] .mdl-textfield .mdl-textfield__label,
   min-width: 250px;
   min-height: 250px;
   padding: 10px; }
+
+.behaviour {
+  display: flex;
+  padding: 10px 5px;
+  margin: 5px 0;
+  border: 1px solid #aaa;
+  font-size: 20px;
+  color: #aaa; }
+  .behaviour.active {
+    color: #000; }
+  .behaviour.baseline {
+    color: #000; }
+  .behaviour span {
+    display: block; }
+  .behaviour span:first-child {
+    width: 20px;
+    text-align: center;
+    margin-right: 5px; }

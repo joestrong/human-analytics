@@ -1,0 +1,22 @@
+.behaviour {
+  display: flex;
+  padding: 10px 5px;
+  margin: 5px 0;
+  border: 1px solid #aaa;
+  font-size: 20px;
+  color: #aaa;
+  &.active {
+    color: #000;
+  }
+  &.baseline {
+    color: #000;
+  }
+  span {
+    display: block;
+  }
+  span:first-child {
+    width: 20px;
+    text-align: center;
+    margin-right: 5px;
+  }
+}
