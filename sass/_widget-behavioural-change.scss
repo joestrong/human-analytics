@@ -1,22 +1,40 @@
-.behaviour {
-  display: flex;
-  padding: 10px 5px;
-  margin: 5px 0;
-  border: 1px solid #aaa;
-  font-size: 20px;
-  color: #aaa;
-  &.active {
-    color: #000;
-  }
-  &.baseline {
-    color: #000;
-  }
-  span {
-    display: block;
-  }
-  span:first-child {
-    width: 20px;
-    text-align: center;
-    margin-right: 5px;
+.widget-behaviour {
+  .level {
+    padding: 10px 5px;
+    margin: 5px 0;
+    border: 1px solid #aaa;
+    font-size: 20px;
+    color: #aaa;
+    &.active {
+      color: #000;
+    }
+    &.baseline {
+      color: #000;
+    }
+    .graph {
+      display: flex;
+      justify-content: center;
+      span {
+        display: block;
+        width: 10px;
+        height: 10px;
+        margin: 0 5px 5px 0;
+        background: #aaa;
+        &.done {
+          background: #444;
+        }
+      }
+    }
+    .title {
+      display: flex;
+      span {
+        display: block;
+      }
+      span:first-child {
+        width: 20px;
+        text-align: center;
+        margin-right: 5px;
+      }
+    }
   }
 }

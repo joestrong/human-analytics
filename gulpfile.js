@@ -2,6 +2,9 @@
 let gulp = require('gulp');
 let rename = require('gulp-rename');
 let sass = require('gulp-sass');
+let babelify = require('babelify');
+let browserify = require('browserify');
+let source = require('vinyl-source-stream');
 
 let watchPaths = {
   sass: './sass/**/*.scss',
@@ -27,9 +30,12 @@ gulp.task('sass', ['mdl'], function() {
 });
 
 gulp.task('scripts', function() {
-  gulp.src(sourceFiles.js)
-    .pipe(rename('app.min.js'))
-    .pipe(gulp.dest(dest));
+    browserify(sourceFiles.js, { debug: true })
+        .transform(babelify, { presets: ['es2015', 'react'] })
+        .bundle()
+        .pipe(source('app.min.js'))
+        .on("error", function (err) { console.log("Error : " + err.message); })
+        .pipe(gulp.dest(dest));
 });
 
 gulp.task('default', ['sass', 'scripts']);

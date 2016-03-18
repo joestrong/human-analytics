@@ -11455,20 +11455,32 @@ fieldset[disabled] .mdl-textfield .mdl-textfield__label,
   min-height: 250px;
   padding: 10px; }
 
-.behaviour {
-  display: flex;
+.widget-behaviour .level {
   padding: 10px 5px;
   margin: 5px 0;
   border: 1px solid #aaa;
   font-size: 20px;
   color: #aaa; }
-  .behaviour.active {
+  .widget-behaviour .level.active {
     color: #000; }
-  .behaviour.baseline {
+  .widget-behaviour .level.baseline {
     color: #000; }
-  .behaviour span {
-    display: block; }
-  .behaviour span:first-child {
-    width: 20px;
-    text-align: center;
-    margin-right: 5px; }
+  .widget-behaviour .level .graph {
+    display: flex;
+    justify-content: center; }
+    .widget-behaviour .level .graph span {
+      display: block;
+      width: 10px;
+      height: 10px;
+      margin: 0 5px 5px 0;
+      background: #aaa; }
+      .widget-behaviour .level .graph span.done {
+        background: #444; }
+  .widget-behaviour .level .title {
+    display: flex; }
+    .widget-behaviour .level .title span {
+      display: block; }
+    .widget-behaviour .level .title span:first-child {
+      width: 20px;
+      text-align: center;
+      margin-right: 5px; }
