@@ -1,6 +1,9 @@
 "use strict";
 let React = require('react');
 let ReactDOM = require('react-dom');
+let request = require('request');
+
+import config from '../../config.js';
 
 let Behaviour = {};
 
@@ -35,13 +38,35 @@ Behaviour.Level = React.createClass({
 export default class BehaviourWidget {
 
   constructor() {
-    let container = document.querySelector('.widget-behaviour');
+    this.container = document.querySelector('.widget-behaviour');
+    this.levels = [];
+    this.getData(() => {
+      this.render();
+    });
+  }
+
+  getData(callback) {
+    request(config.api_endpoint + '/behaviour', (err, res, body) => {
+      if (err) {
+        console.log(err);
+        return;
+      }
+      let data = JSON.parse(body);
+      this.levels = data.items;
+      callback();
+    });
+  }
+
+  render() {
     ReactDOM.render((
       <div>
-        <Behaviour.Level level="2" name="Music composition" />
-        <Behaviour.Level level="1" name="Read before bed" />
+        {this.levels.reverse().map((item, index) => {
+          let key = this.levels.length -1 - index;
+          let level = key + 1;
+          return <Behaviour.Level key={key} level={level} name={item.name} />;
+        });}
         <Behaviour.Level level="0" name="Baseline" />
       </div>
-    ), container);
+    ), this.container);
   }
 }
